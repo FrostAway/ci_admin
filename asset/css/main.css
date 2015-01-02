@@ -1,0 +1,178 @@
+body {
+  font-family: calibri;
+  background: #f2f2f2;
+  font-size: 14px;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.normal {
+  white-space: normal;
+}
+.margin-right-2 {
+  margin-right: 2em!important;
+}
+.button {
+  margin: 0!important;
+}
+nav#nav-top {
+  line-height: 3em !important;
+}
+.bar-product img {
+  width: 8em;
+}
+.bar-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  padding: 0.3em;
+}
+#main-menu {
+  background: #0099cc;
+}
+#main-menu ul li a {
+  background: #0099cc !important;
+  color: #fff !important;
+}
+#main-menu .top-bar,
+#main-menu .top-bar-section,
+#main-menu .name {
+  background: #0099cc;
+}
+.wrapper {
+  margin-top: 0.8em;
+  background: #fff;
+  padding: 0.8em;
+}
+.nav-table .button {
+  margin-left: 0.4em!important;
+}
+.nav-table .btn-search {
+  padding: 0.4em 2em !important;
+}
+.nav-table .fi-magnifying-glass {
+  font-size: 23px;
+}
+.data-form textarea {
+  height: 12em;
+}
+.data-table {
+  width: 100%;
+}
+.data-table tr:hover {
+  background: #e7e7cb;
+}
+.data-table tr input[type='checkbox'],
+.data-table tr input[type='text'],
+.data-table tr textarea,
+.data-table tr select {
+  margin: 0px;
+}
+.data-table tr input[type='text'],
+.data-table tr select {
+  height: 1.9em;
+}
+.data-table tr td .fi-page-edit,
+.data-table tr td .fi-page-delete {
+  font-size: 1.6em;
+}
+.data-table tr td a {
+  margin-right: 0.5em;
+}
+.data-table tr td a img {
+  width: 5em;
+}
+.data-table .th img {
+  width: 7em;
+}
+.bar-table {
+  border-collapse: collapse;
+  border: none;
+  width: 95%;
+  margin: auto;
+}
+.multi-select {
+  width: 20em;
+}
+.multi-select h5 a {
+  padding: 0.5em 1em !important;
+  font-size: 1em;
+}
+.multi-select .side-nav {
+  display: none;
+  border: 1px solid #33ffff;
+  padding: 1em;
+}
+.multi-select .side-nav li {
+  margin: 0;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid#afaf12;
+}
+.multi-select .side-nav li:first-child {
+  border-top: 1px solid #afaf12;
+}
+.side-nav li input[type="checkbox"] {
+  float: left;
+  margin: 0.8em 0.2em 0 0;
+}
+.ui-sortable li {
+  padding-left: 1.2em;
+  margin: 0;
+  margin: 0.3em 0;
+  border: 1px solid #303030;
+}
+.ui-sortable .ui-placeholder {
+  border: 2px dotted #003f54;
+  background: #888888;
+  height: 2.7em;
+}
+.ui-sortable .ui-sortable-helper {
+  background: #e1e1e1;
+  height: 2.7em;
+}
+.ui-sortable .item-depth-1,
+.ui-sortable .item-child {
+  margin-left: 2em;
+}
+.list-image {
+  margin: auto!important;
+  width: 27.78em;
+  border: 1px solid #cccccc;
+}
+.list-image li {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.list-image li a img {
+  margin: 0.7em;
+  width: 5em;
+  height: 5em;
+}
+.list-image li .fi-x {
+  display: none;
+  position: absolute;
+  top: 0.2em;
+  right: 0.3em;
+}
+.list-image li:hover .fi-x {
+  display: block;
+}
+@media only screen and (max-width: 40em) {
+  /* small */
+  .form-group {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  /* medium */
+  .form-group {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* large */
+}
