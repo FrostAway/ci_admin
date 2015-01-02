@@ -85,11 +85,12 @@ $(document).ready(function () {
 
                 $(".list-image").append(text);
 
-                var path = data.path;
+                
                 $(".del-image").click(function (e) {
                     e.preventDefault();
                     var parent = $(this).closest(".item-image");
                     var itemurl = parent.find(".product-image");
+					var path = data.path;
                     $.ajax({
                         type: 'POST',
                         data: {imglink: path},
