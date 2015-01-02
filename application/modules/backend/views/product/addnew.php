@@ -7,7 +7,8 @@
 </div>
 
 <div class=" row wrapper">
-    <form class="data-form" id="data-form" action="<?php echo base_url() ?>backend/product/addnew" method="post" enctype="multipart/form-data">
+    <!--<form class="data-form" id="data-form" action="<?php // echo base_url() ?>backend/product/addnew" method="post" enctype="multipart/form-data">-->
+    <?php echo form_open_multipart(base_url().'backend/product/addnew', array('id'=>'data-form', 'class'=>'data-form')) ?>
     <div class="row">
         <div class="small-12 medium-6 large-6 columns">
             <h5>Thêm mới sản phẩm</h5>
@@ -48,7 +49,10 @@
 
 
                 <label>Mô tả: </label>
-                <textarea name="product[description]" placeholder="Mô tả sản phẩm"></textarea>
+                <textarea id="desc-editor" name="product[description]" placeholder="Mô tả sản phẩm"></textarea>
+                <script>
+                    CKEDITOR.replace("desc-editor");
+                </script>
                 <input type="submit" name="btn-addnew" class="button small radius" value="Thêm mới" />
             
 

@@ -7,7 +7,8 @@
 </div>
 
 <div class=" row wrapper">
-    <form class="data-form" id="data-form" action="<?php echo base_url() ?>backend/product/update/<?php echo $product->id ?>" method="post" enctype="multipart/form-data">
+    <!--<form class="data-form" id="data-form" action="<?php //echo base_url() ?>backend/product/update/<?php echo $product->id ?>" method="post" enctype="multipart/form-data">-->
+    <?php echo form_open_multipart(base_url().'backend/product/update/'.$product->id, array('id'=>'data-form', 'class'=>'data-form')) ?>
     <div class="row">
         <div class="small-12 medium-6 large-6 columns">
             <h5>Cập nhật sản phẩm</h5>
@@ -55,7 +56,10 @@
                 </div>
 
                 <label>Mô tả: </label>
-                <textarea name="product[description]" placeholder="Mô tả sản phẩm"><?php echo $product->description ?></textarea>
+                <textarea id="desc-editor" name="product[description]" placeholder="Mô tả sản phẩm"><?php echo $product->description ?></textarea>
+				<script>
+                    CKEDITOR.replace("desc-editor");
+                </script>
                 <input type="submit" name="btn-addnew" class="button small radius" value="Lưu lại" />
             
 

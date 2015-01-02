@@ -14,6 +14,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="<?php echo base_url() ?>asset/css/main.css" />
 
         <script src="<?php echo base_url() ?>asset/foundation/js/vendor/modernizr.js"></script>
+        <script src="<?php echo base_url() ?>asset/plugin/ckeditor/ckeditor.js"></script>
         <script src="https://www.google.com/jsapi"></script>
 
 
