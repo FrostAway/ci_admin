@@ -13,12 +13,7 @@
                     <label>Tên thuộc tính: </label>
                     <input type="text" name="attrg[name]" id="name" placeholder="Tên thuộc tính" />
                     
-                    <label>Hạng mục: </label>
-                    <select name="attrg[category_id]">
-                        <?php foreach ($cates as $cate){ ?>
-                        <option value="<?php echo $cate['id'] ?>"><?php echo $cate['name'] ?></option>
-                        <?php } ?>
-                    </select>
+                    
                     <input type="submit" name="btn-addnew" id="btn-addnew" class="button tiny radius" value="Thêm mới" />
                 </form>
             </div>

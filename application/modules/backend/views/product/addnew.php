@@ -18,6 +18,8 @@
             
                 <label>Tên sản phẩm: </label>
                 <input type="text" name="product[name]" placeholder="Tên sản phẩm"/>
+                <label>Model: </label>
+                <input type="text" name="product[model]" placeholder="Model"/>
                 <label>Giá sản phẩm: </label>
                 <input name="product[price]" type="text" placeholder="Giá sản phẩm"/>
                 <label>Giá khuyễn mãi: </label>

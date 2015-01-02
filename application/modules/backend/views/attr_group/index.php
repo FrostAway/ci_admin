@@ -36,7 +36,7 @@
                     <td><?php echo $attrg['name'] ?></td>
                     <td>
                         <a href="<?php echo base_url().'backend/attr_group/update/'.$attrg['id'] ?>" data-tooltip aria-haspopup="true" class="has-tip" title="Chỉnh sửa"><i class="fi-pencil large"></i> </a> 
-                        <a href="#" data-tooltip aria-haspopup="true" class="has-tip" title="Xóa"><i class="fi-x large"></i> </a>
+                        <a href="<?= base_url().'backend/attr_group/delete_group'  ?>" class="item-delete" itemid="<?= $attrg['id'] ?>" data-tooltip aria-haspopup="true" class="has-tip" title="Xóa"><i class="fi-x large"></i> </a>
                     </td>
                 </tr>
             <?php } ?>

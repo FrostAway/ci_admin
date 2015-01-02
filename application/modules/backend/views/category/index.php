@@ -4,7 +4,7 @@
         <div class="row">
             <h4 class="bar-title">Quản lý Hạng mục</h4>
         </div>
-        <?php if(count($categories) > 0){ ?>
+        
         <div class="row nav-table">
                 <div class="small-12 medium-6 large-4 columns">
                     <div class="row collapse">
@@ -22,7 +22,7 @@
                     <a href="<?php echo base_url() ?>backend/category/addnew" class="button radius tiny"><i class="fi-plus"></i> Thêm mới</a>
                 </div>
             </div>
-        
+        <?php if(count($categories) > 0){ ?>
         <table class="data-table">
             <thead>
                 <tr>
@@ -48,7 +48,7 @@
                         <input type="checkbox" checked="" name="show-in-menu" />
                         <?php } ?>
                     </td>
-                    <td><?php echo $cate['parent'] ?></td>
+                    <td><?php echo $cate['parent_id'] ?></td>
                     <td>
                         <a href="<?php echo base_url().'backend/category/update/'.$cate['id'] ?>" data-tooltip aria-haspopup="true" class="has-tip" title="Chỉnh sửa"><i class="fi-pencil large"></i> </a> 
                         <a href="<?php echo base_url().'backend/category/delete' ?>" class="item-delete" itemid="<?php echo $cate['id'] ?>" href="<?php echo base_url().'backend/category/delete/'.$cate['id'] ?>" data-tooltip aria-haspopup="true" class="has-tip" title="Xóa"><i class="fi-x large"></i></a>

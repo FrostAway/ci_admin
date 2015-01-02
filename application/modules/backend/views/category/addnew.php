@@ -15,7 +15,7 @@
                         <label>Tên: </label>
                         <input type="text" name="cate[name]" value="" placeholder="Hạng mục" />
                         <label>Hạng mục cha: </label>
-                        <select name="cate[parent]">
+                        <select name="cate[parent_id]">
                             <option value="0">Không có</option>
                             <?php foreach ($parents as $parent){  ?>
                             <option  value="<?php echo $parent['id'] ?>"><?php echo $parent['name'] ?></option>
@@ -26,12 +26,10 @@
                         
                         
                         <label>Hiển thị lên menu <input name="cate[show_in_menu]" type="checkbox"> </label>
-                        <label>Mô tả: </label>
-                        <textarea name="cate[description]" value="" placeholder="Mô tả hạng mục"></textarea>
                         <label>Tag Title</label>
                         <input name="cate[tag_title]" value="" type="text" placeholder="tag title" />
                         <label>Tag Description</label>
-                        <textarea name="cate[tag_desc]" placeholder="Tag Description"></textarea>
+                        <textarea name="cate[tag_description]" placeholder="Tag Description"></textarea>
                         <label>Tag Keywords</label>
                         <textarea name="cate[tag_keywords]" placeholder="Tag Keywords"></textarea>
                         
