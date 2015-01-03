@@ -7,6 +7,23 @@ class Mcategory extends CI_Model{
     }
     
     public function get_all(){
+        $cates = $this->db->get($this->table)->result_array();
+        $listcates = array();
+        foreach ($cates as $cate){
+            $query = $this->db->query("select name as parent_name from categories where id='".$cate['parent_id']."'");
+            if($query->num_rows()>0){
+            $cate['parent_name'] = $query->row()->parent_name;
+            }else{
+                $cate['parent_name'] = 'None';
+            }
+            $listcates[] = $cate;
+        }
+        return $listcates;
+    }
+    
+    
+    public function get_order_by_fild($fild, $order){
+        $this->db->order_by($fild, $order);
         return $this->db->get($this->table)->result_array();
     }
     

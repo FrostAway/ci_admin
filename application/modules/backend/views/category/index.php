@@ -7,15 +7,26 @@
         
         <div class="row nav-table">
                 <div class="small-12 medium-6 large-4 columns">
+                     <?= form_open(base_url().'backend/category/option', array('method'=>'post', 'id'=>'form-view')); ?>
                     <div class="row collapse">
-                        <div class="small-12 medium-9 large-9 columns">
-                            <select>
-                                <option value="0">Hạng mục</option>
-                                <option value="0">Hạng mục</option>
-                                <option value="0">Hạng mục</option>
+                        <div class="small-10 medium-9 large-9 columns">
+                            <select name="view-type" id="view-type-id">
+                                <?php
+                                $select = '';
+                                if(isset($type_id)){
+                                    
+                                }
+                                ?>
+                                <option value="0">Sắp xếp theo</option>
+                                <option value="1">Sắp xếp theo tên A-Z</option>
+                                <option value="2">Sắp xếp theo tên Z-A</option>
                             </select>
                         </div>
+                        <div class="small-2 medium-3 large-3 columns">
+                            <input type="submit" class="button tiny radius" value="Apply" name="btn-view-type" />
+                        </div>
                     </div>
+                    <?= form_close() ?>
                 </div>
             
                 <div class="small-12 medium-3 medium-offset-3 large-2 large-offset-6 columns form-group">
@@ -48,7 +59,7 @@
                         <input type="checkbox" checked="" name="show-in-menu" />
                         <?php } ?>
                     </td>
-                    <td><?php echo $cate['parent_id'] ?></td>
+                    <td><?php echo $cate['parent_name'] ?></td>
                     <td>
                         <a href="<?php echo base_url().'backend/category/update/'.$cate['id'] ?>" data-tooltip aria-haspopup="true" class="has-tip" title="Chỉnh sửa"><i class="fi-pencil large"></i> </a> 
                         <a href="<?php echo base_url().'backend/category/delete' ?>" class="item-delete" itemid="<?php echo $cate['id'] ?>" href="<?php echo base_url().'backend/category/delete/'.$cate['id'] ?>" data-tooltip aria-haspopup="true" class="has-tip" title="Xóa"><i class="fi-x large"></i></a>

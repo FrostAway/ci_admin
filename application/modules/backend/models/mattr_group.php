@@ -11,14 +11,16 @@ class Mattr_group extends CI_Model{
         return $this->db->get('attr_group')->result_array();
     }
     
+    public function get_order_by_fild($fild, $order){
+        $this->db->order_by($fild, $order);
+        return $this->db->get($this->table)->result_array();
+    }
+    
     public function get_attr_group($id){
         $this->db->where('id', $id);
         return $this->db->get($this->table)->first_row();
     }
-    
-    public function get_name($id){
-        
-    }
+  
 
     public function insert($data){
         $this->db->insert($this->table, $data);

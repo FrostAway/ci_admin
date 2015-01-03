@@ -14,6 +14,7 @@ class Attr_group extends MX_Controller {
         $this->load->view('layout', $pass);
     }
 
+    //them nhom thuoc tinh moi
     public function addnew() {
         $pass['title'] = 'Add Attribute Group';
         $pass['subview'] = 'attr_group/addnew';
@@ -34,7 +35,8 @@ class Attr_group extends MX_Controller {
             $this->load->view('layout', $pass);
         }
     }
-    
+
+    // cap nhat thuoc tinh trong nhom
     public function update($id) {
         $pass['title'] = 'Update Attribute Group';
         $pass['subview'] = 'attr_group/update';
@@ -65,24 +67,27 @@ class Attr_group extends MX_Controller {
         }
     }
 
-    public function update_attr(){
-         if ($this->input->post('attrid')) {
-             $this->load->model('mattribute');
+    //cap nhat nhom thuoc tinh
+    public function update_attr() {
+        if ($this->input->post('attrid')) {
+            $this->load->model('mattribute');
             $id = $this->input->post('attrid');
             $data = $this->mattribute->get_attribute($id);
-            echo json_encode(array('id'=>$data->id, 'name' => $data->name, 'type' => $data->data_type, 'default' => $data->default));
+            echo json_encode(array('id' => $data->id, 'name' => $data->name, 'type' => $data->data_type, 'default' => $data->default));
         }
     }
-    
-    public function delete_group(){
-        if($this->input->post('itemid')){
+
+    // xoa nhom
+    public function delete_group() {
+        if ($this->input->post('itemid')) {
             $id = $this->input->post('itemid');
-            if($this->mattr_group->delete_group($id)){
+            if ($this->mattr_group->delete_group($id)) {
                 echo 'Successfully!';
             }
         }
     }
-    
+
+    //xoa thuoc tinh cua nhom
     public function delete_attr() {
         if ($this->input->post('itemid')) {
             $id = $this->input->post('itemid');
@@ -94,7 +99,25 @@ class Attr_group extends MX_Controller {
             }
         }
     }
-//
-    
 
+    public function option() {
+        if ($this->input->post('btn-view-type')) {
+            $type_id = $this->input->post('view-type');
+            $pass['title'] = 'Attribute Group Manager';
+            $pass['subview'] = 'attr_group/index';
+            $pass['type_id'] = $type_id;
+            switch ($type_id) {
+                case 1:
+                    $pass['attrgs'] = $this->mattr_group->get_order_by_fild('name', 'asc');
+                    break;
+                case 2: 
+                    $pass['attrgs'] = $this->mattr_group->get_order_by_fild('name', 'desc');
+                default:
+                    break;
+            }
+            $this->load->view('layout', $pass);
+        }
+    }
+
+//
 }

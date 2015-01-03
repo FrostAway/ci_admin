@@ -15,7 +15,6 @@
                     <input type="text" name="attr[name]" id="name" placeholder="Tên thuộc tính" />
                     <label>Kiểu dữ liệu</label>
                     <select name="attr[data_type]" id="type">
-                        <option value="varchar">Varchar</option>
                         <option value="text">Text</option>
                         <option value="number">Kiểu Số</option>
                         <option value="date">Thời gian</option>

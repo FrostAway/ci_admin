@@ -20,7 +20,7 @@ class Category extends MX_Controller {
         $pass['currcate'] = $this->mcategory->get_category($id);
         $pass['parents'] = $this->mcategory->get_all();
         if ($this->input->post('btn-addnew')) {
-            
+
             $this->form_validation->set_rules('cate[name]', 'Name', 'required');
             $this->form_validation->set_rules('cate[sort_order]', 'Sort Order', 'required');
 
@@ -45,6 +45,7 @@ class Category extends MX_Controller {
             $this->load->view('layout', $pass);
         }
     }
+
 //
     public function addnew() {
         $pass['title'] = 'Add Category';
@@ -78,13 +79,32 @@ class Category extends MX_Controller {
             $this->load->view('layout', $pass);
         }
     }
-    
-    public function delete(){
-        if($this->input->post('itemid')){
+
+    public function delete() {
+        if ($this->input->post('itemid')) {
             $id = $this->input->post('itemid');
-            if($this->mcategory->delete($id)){
+            if ($this->mcategory->delete($id)) {
                 echo 'Xóa thành công';
             }
+        }
+    }
+
+    public function option() {
+        if ($this->input->post('btn-view-type')) {
+            $type_id = $this->input->post('view-type');
+            $pass['title'] = 'Category Manager';
+            $pass['subview'] = 'category/index';
+            $pass['type_id'] = $type_id;
+            switch ($type_id) {
+                case 1:
+                    $pass['categories'] = $this->mcategory->get_order_by_fild('name', 'asc');
+                    break;
+                case 2:
+                    $pass['categories'] = $this->mcategory->get_order_by_fild('name', 'desc');
+                default:
+                    break;
+            }
+            $this->load->view('layout', $pass);
         }
     }
 

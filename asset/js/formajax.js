@@ -63,81 +63,87 @@ $(document).ready(function () {
     });
 
     //upload and delete image
-    $("#btn-upload").change(function () {
-        var form = document.querySelector('#data-form');
-        var formData = new FormData(form);
-        $.ajax({
-            type: 'POST',
-            data: formData,
-            url: $(this).attr("url"),
-            processData: false,
-            contentType: false,
-            dataType: 'json',
-            success: function (data) {
-                var text =
-                        '<li class="item-image">' +
-                        '<a class="th" href="">' +
-                        '<img src="' + data.src + '"/>' +
-                        '</a>' +
-                        '<a href="#" class="del-image fi-x large"></a>' +
-                        '<div class="product-image"><input name="product-image[]" type="hidden" value="' + data.src + '"/></div>' +
-                        '</li>';
-
-                $(".list-image").append(text);
-
-                
-                $(".del-image").click(function (e) {
-                    e.preventDefault();
-                    var parent = $(this).closest(".item-image");
-                    var itemurl = parent.find(".product-image");
-                    var path = data.path;
-                    $.ajax({
-                        type: 'POST',
-                        data: {imglink: path},
-                        url: $(".del-image").attr("href"),
-                        success: function (res) {
-                            if (res === '1') {
-                                parent.fadeOut(300);
-                                itemurl.html("");
-                            } else {
-                                alert('Có lỗi xảy ra!');
-                            }
-                        }
-                    });
-                });
-            }
-        });
-    });
+//    $("#btn-upload").change(function () {
+//        var form = document.querySelector('#data-form');
+//        var formData = new FormData(form);
+//        $.ajax({
+//            type: 'POST',
+//            data: formData,
+//            url: $(this).attr("url"),
+//            processData: false,
+//            contentType: false,
+//            dataType: 'json',
+//            success: function (data) {
+//                var text =
+//                        '<li class="item-image">' +
+//                        '<a class="th" href="">' +
+//                        '<img src="' + data.src + '"/>' +
+//                        '</a>' +
+//                        '<a href="#" class="del-image fi-x large"></a>' +
+//                        '<div class="product-image"><input name="product-image[]" type="hidden" value="' + data.src + '"/></div>' +
+//                        '</li>';
+//
+//                $(".list-image").append(text);
+//
+//
+//
+//            }
+//        });
+//    });
 
     //delete in update page not response ajax
     $(".del-image").click(function (e) {
         e.preventDefault();
+
         var parent = $(this).closest(".item-image");
         var itemurl = parent.find(".product-image");
         var path = parent.find("img").attr("src");
-        var pathspl = path.split("/");
-        path = './asset/images/upload/'+pathspl[pathspl.length - 1];
-        var pid = $(this).attr("pid");
-        if(pid == 'undefined'){
-            pid = 0;
-        }
-        var relaid = $(this).attr("relaid");
-        if(relaid == 'undefined'){
-            relaid = 0;
-        }
-        $.ajax({
-            type: 'POST',
-            data: {imglink: path, pid: pid, relaid: relaid},
-            url: $(".del-image").attr("href"),
-            success: function (res) {
-                if (res === '1') {
-                    parent.fadeOut(300);
+
+        parent.hide(200);
+        itemurl.html("");
+    });
+
+    // kcfiner select image
+
+    $("#btn-upload").click(function () {
+        window.KCFinder = {
+            callBack: function (url) {
+                window.KCFinder = null;
+                var text =
+                        '<li class="item-image">' +
+                        '<a class="th" href="">' +
+                        '<img src="' + url + '"/>' +
+                        '</a>' +
+                        '<a href="#" class="del-image fi-x large"></a>' +
+                        '<div class="product-image"><input name="product-image[]" type="hidden" value="' + url + '"/></div>' +
+                        '</li>';
+
+                $(".list-image").append(text);
+                $(".del-image").click(function (e) {
+                    e.preventDefault();
+                    var parent = $(this).closest(".item-image");
+                    var itemurl = parent.find(".product-image");
+                    parent.hide(200);
                     itemurl.html("");
-                } else {
-                    alert('Có lỗi xảy ra!');
-                }
+                });
             }
-        });
+        };
+        window.open('http://localhost/ci_admin/asset/plugin/kcfinder/browse.php?type=images&dir=images/public',
+                'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+                );
+        return false;
+    });
+
+    // chon kieu xem san pham
+    $("#form-view").submit(function () {
+        var type_id = $("#view-type-id").val();
+        
+        if (type_id === '0') {
+           return false;
+        }else{
+            return true;
+        }
     });
 
 });
