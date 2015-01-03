@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   // jQuery.noConflict();
     $("#all-check").change(function () {
         if ($(this).is(":checked")) {
             $(".item-check").prop("checked", true);
@@ -25,6 +26,14 @@ $(document).ready(function () {
         connectWith: '.item-child',
         placeholder: 'ui-placeholder'
     });
+    
+    //date picker
+    
 
 });
+
+$(function (){
+    $("input[type=date]").datepicker();
+});
+
 

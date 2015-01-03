@@ -16,6 +16,7 @@
                     <label>Kiểu dữ liệu</label>
                     <select name="attr[data_type]" id="type">
                         <option value="text">Text</option>
+                        <option value="varchar">Varchar</option>
                         <option value="number">Kiểu Số</option>
                         <option value="date">Thời gian</option>
                     </select>

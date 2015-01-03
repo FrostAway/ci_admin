@@ -48,12 +48,12 @@ class Product extends MX_Controller {
                 }
 
                 //insert attrs
-                $product_attrs = $this->input->post('product-attrs');
+                $product_attrs = $this->input->post('product-attrs');;
                 foreach ($product_attrs as $attr_id => $value) {
-                    $this->mproduct_attr->insert($p_id, $attr_id, $value);
+                    $this->mproduct_attr->insert($value['type'], $p_id, $attr_id, $value['value']);
                 }
-
-
+//
+//
                 redirect('/backend/product/index');
             }
         } else {
@@ -72,7 +72,7 @@ class Product extends MX_Controller {
 
         $pass['product_attrs'] = $this->mproduct_attr->get_values($id);
         $pass['product_images'] = $this->mproduct_attr->get_images($id);
-
+       
 
         if ($this->input->post('btn-addnew')) {
             $this->load->helper('convert_helper');
@@ -194,20 +194,8 @@ class Product extends MX_Controller {
 ////        echo $url;
 //    }
 //
-    public function delete_image() {
-//        if ($this->input->post('imglink')) {
-//            $imglink = $this->input->post('imglink');
-//            if (unlink($imglink)) {
-//                $relaid = $this->input->post('relaid');
-//                if ($relaid != 0) {
-//                    $this->mproduct_attr->delete_image($relaid);
-//                }
-//                $res = 1;
-//            } else {
-//                $res = 0;
-//            }
-//            echo $res;
-//        }
+    public function date() {
+        $this->load->view('product/date');
     }
 
 }
