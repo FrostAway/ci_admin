@@ -20,15 +20,6 @@
                     </div>
                     <?= form_close(); ?>
                 </div>
-                <div class="small-12 medium-2 large-2 large-offset-4 columns form-group">                   
-                    <a class="button radius tiny">Nhập file Excel</a>
-                </div>
-                <div class="small-12 medium-2 large-2 columns form-group">
-                    <a class="button radius tiny">Xuất file Excel</a>
-                </div>
-<!--                <div class="small-12 medium-2 large-2 columns form-group">
-                    <a class="button radius tiny"><i class="fi-plus"></i> Thêm mới</a>
-                </div>-->
             </div>
             
             <table class="data-table">
@@ -53,21 +44,13 @@
                         <?= form_open(base_url().'backend/order/updateStatus', array('method'=>'post')) ?>
                          <?= form_hidden('order_id', $order['id']); ?>
                         <td>
-                            <?php // if($order['status'] == 1) echo 'Chưa thanh toán'; elseif($order['status']==2) echo 'Đã thanh toán'; ?>
-                            <select name="status">
-                                <?php if($order['status'] == 1){ ?>
-                                <option selected="" value="1">Chưa thanh toán</option>
-                                <option value="2">Đã thanh toán</option>
-                                <?php }else{ ?>
-                                 <option value="1">Chưa thanh toán</option>
-                                 <option selected="" value="2">Đã thanh toán</option>
-                                <?php } ?>
-                            </select>
+                            <?php  if($order['status'] == 1) echo 'Chưa thanh toán'; elseif($order['status']==2) echo 'Đã thanh toán'; ?>
+                            
                         </td>
                         <td>
                             <a href="<?= base_url() ?>backend/order/detail/<?= $order['id'] ?>" data-tooltip aria-haspopup="true" class="has-tip" title="Xem chi tiết"><i class="fi-book"></i> </a>                   
                             <a href="<?= base_url() ?>backend/order/delete" itemid="<?= $order['id'] ?>" class="item-delete" data-tooltip aria-haspopup="true" class="has-tip" title="Xóa"><i class="fi-x large"></i></a>
-                            <input type="submit" data-tooltip aria-haspopup="true" class="has-tip" title="Cập nhật trạng thái" value="Update">
+                            <!--<input type="submit" data-tooltip aria-haspopup="true" class="has-tip" title="Cập nhật trạng thái" value="Update">-->
                         </td>
                         <?= form_close(); ?>
                     </tr>

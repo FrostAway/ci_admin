@@ -22,7 +22,7 @@ class Mproduct extends CI_Model {
 
     public function get_product($id) {
         $query = $this->db->query("select p.id, thumbnail, p.name, price, discount, category_id, quantity, c.name as category_name "
-                . " from products p, categories c where p.category_id=c.id and p.id=$id and status!=0");
+                . " from products p, categories c where p.category_id=c.id and p.id=$id and p.status!=0");
         if($query->num_rows() > 0){
             return $query->row();
         }

@@ -50,7 +50,7 @@ class Product extends MX_Controller {
                 //insert attrs
                 $product_attrs = $this->input->post('product-attrs');;
                 foreach ($product_attrs as $attr_id => $value) {
-                    $this->mproduct_attr->insert($value['type'], $p_id, $attr_id, $value['value']);
+                    $this->mproduct_attr->insert($p_id, $attr_id, $value['value']);
                 }
 //
 //
@@ -150,9 +150,8 @@ class Product extends MX_Controller {
                 redirect('/backend/product/index');
             }
         }
-        echo '1';
+        
         if($this->input->post('view-type')){
-            echo '2';
             $type_id = $this->input->post('view-type');
             $pass['title'] = 'Product Manager';
             $pass['subview'] = 'product/index';            

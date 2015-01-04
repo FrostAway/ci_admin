@@ -64,6 +64,21 @@ class Order extends MX_Controller {
             }
             $this->load->view('layout', $pass);
         }
+        
+        
+        if ($this->input->post('btn-apply')) {
+            $action = $this->input->post('order-action');
+            if ($action == 1) {
+                $item_check = $this->input->post('item-check');
+                if (count($item_check) > 0) {
+                    foreach ($item_check as $o_id => $stt) {
+                        $this->morder->delete($o_id);
+                        $this->mproduct_order->delete_order($o_id);
+                    }
+                }
+                redirect('/backend/product/index');
+            }
+        }
     }
 
     public function sendemail() {
@@ -89,6 +104,15 @@ class Order extends MX_Controller {
             } else {
                 echo 'Fails';
             }
+        }
+    }
+    
+    public function outfile(){
+        $this->load->helper('file');
+        if(!write_file('./asset/file/file.xls', 'some file')){
+            echo 'Khong the xuat file';
+        }else{
+            echo 'Successfully';
         }
     }
 
