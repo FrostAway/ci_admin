@@ -150,13 +150,13 @@ class Product extends MX_Controller {
                 redirect('/backend/product/index');
             }
         }
-        if($this->input->post('btn-view-type')){
+        echo '1';
+        if($this->input->post('view-type')){
+            echo '2';
             $type_id = $this->input->post('view-type');
             $pass['title'] = 'Product Manager';
             $pass['subview'] = 'product/index';            
             switch ($type_id) {
-                case 0:
-                    redirect('/backend/product/index');
                 case 1:
                     $pass['products'] = $this->mproduct->get_order_by_fild('name', 'asc');
                     break;

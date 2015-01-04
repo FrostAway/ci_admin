@@ -63,7 +63,11 @@ class Mproduct_attr extends CI_Model {
 
     public function update_value($product_id, $attr_id, $value) {
         $data = array('value' => $value);
-        return $this->db->update($this->table, $data, array('product_id' => $product_id, 'attr_id' => $attr_id));
+        $this->db->update($this->table, $data, array('product_id' => $product_id, 'attr_id' => $attr_id));
+        $this->db->update('product_attr_varchar', $data, array('product_id' => $product_id, 'attr_id' => $attr_id));
+        $this->db->update('product_attr_text', $data, array('product_id' => $product_id, 'attr_id' => $attr_id));
+        $this->db->update('product_attr_number', $data, array('product_id' => $product_id, 'attr_id' => $attr_id));
+        $this->db->update('product_attr_date', $data, array('product_id' => $product_id, 'attr_id' => $attr_id));
     }
 
     public function delete_by_product($product_id) {

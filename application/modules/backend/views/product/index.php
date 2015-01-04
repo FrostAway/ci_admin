@@ -15,9 +15,6 @@
                                 <option value="2">Giá sản phẩm</option>
                             </select>
                         </div>
-                        <div class="small-2 medium-3 large-3 columns">
-                            <input type="submit" id="view-type" class="button tiny radius" value="Apply" name="btn-view-type" />
-                        </div>
                     </div>
                     <?= form_close() ?>
                 </div>

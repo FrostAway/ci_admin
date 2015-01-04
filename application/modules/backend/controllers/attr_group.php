@@ -101,7 +101,7 @@ class Attr_group extends MX_Controller {
     }
 
     public function option() {
-        if ($this->input->post('btn-view-type')) {
+        if ($this->input->post('view-type')) {
             $type_id = $this->input->post('view-type');
             $pass['title'] = 'Attribute Group Manager';
             $pass['subview'] = 'attr_group/index';

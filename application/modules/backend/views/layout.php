@@ -56,14 +56,14 @@ and open the template in the editor.
                             </li>
                             <li class="has-dropdown not-click"><a href="#"><i class="fi-shopping-bag large"></i> Sán phẩm</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Danh mục</a></li>
-                                    <li><a href="#">Sản phẩm</a></li>
-                                    <li><a href="#">Nhóm thuộc tính</a></li>
+                                    <li><a href="<?= base_url().'backend/category/index' ?>">Danh mục</a></li>
+                                    <li><a href="<?= base_url().'backend/product/index' ?>">Sản phẩm</a></li>
+                                    <li><a href="<?= base_url().'backend/attr_group/index' ?>">Nhóm thuộc tính</a></li>
                                 </ul>
                             </li>
                             <li class="has-dropdown not-click"><a href="#"><i class="fi-dollar-bill large"></i> Bán hàng</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Đơn đặt hàng</a></li>
+                                    <li><a href="<?= base_url().'backend/order/index' ?>">Đơn đặt hàng</a></li>
                                     <li><a href="#">Khách hàng</a></li>
                                     <li><a href="#">Điểm bán hàng</a></li>
                                 </ul>

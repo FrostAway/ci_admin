@@ -69,10 +69,6 @@ nav#nav-top {
 .data-table tr select {
   margin: 0px;
 }
-.data-table tr input[type='text'],
-.data-table tr select {
-  height: 1.9em;
-}
 .data-table tr td .fi-page-edit,
 .data-table tr td .fi-page-delete {
   font-size: 1.6em;
@@ -168,10 +164,6 @@ nav#nav-top {
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   /* medium */
-  .form-group {
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-  }
 }
 @media only screen and (min-width: 64.063em) {
   /* large */

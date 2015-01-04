@@ -20,9 +20,6 @@
                                 <option value="2">Sắp xếp theo tên Z-A</option>
                             </select>
                         </div>
-                        <div class="small-2 medium-3 large-3 columns">
-                            <input type="submit" class="button tiny radius" value="Apply" name="btn-view-type" />
-                        </div>
                     </div>
                     <?= form_close() ?>
                 </div>

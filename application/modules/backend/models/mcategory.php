@@ -7,29 +7,23 @@ class Mcategory extends CI_Model{
     }
     
     public function get_all(){
-        $cates = $this->db->get($this->table)->result_array();
-        $listcates = array();
-        foreach ($cates as $cate){
-            $query = $this->db->query("select name as parent_name from categories where id='".$cate['parent_id']."'");
-            if($query->num_rows()>0){
-            $cate['parent_name'] = $query->row()->parent_name;
-            }else{
-                $cate['parent_name'] = 'None';
-            }
-            $listcates[] = $cate;
-        }
-        return $listcates;
+        $query = $this->db->query("select c1.id, c1.name, c1.sort_order, c1.show_in_menu, c1.parent_id, c2.name as parent_name"
+                . " from categories c1, categories c2 where c1.parent_id=c2.id and c1.id!=0 and c1.status!=0");
+        return $query->result_array();
     }
     
     
     public function get_order_by_fild($fild, $order){
-        $this->db->order_by($fild, $order);
-        return $this->db->get($this->table)->result_array();
+         $query = $this->db->query("select c1.id, c1.name, c1.sort_order, c1.show_in_menu, c1.parent_id, c2.name as parent_name"
+                . " from categories c1, categories c2 where c1.parent_id=c2.id and c1.id!=0 and c1.status!=0"
+                 . " order by $fild $order");
+        return $query->result_array();
     }
     
     public function get_category($id){
-        $this->db->where('id', $id);
-        return $this->db->get($this->table)->first_row();
+        $query = $this->db->query("select c1.*, c2.name as parent_name"
+                . " from categories c1, categories c2 where c1.parent_id=c2.id and c1.id!=0 and c1.id=$id and c1.status!=0");
+        return $query->row();
     }
     
     public function insert($data){
@@ -42,7 +36,7 @@ class Mcategory extends CI_Model{
     }
     
     public function delete($id){
-        return $this->db->delete($this->table, array('id'=>$id));
+        return $this->db->update($this->table,array('status'=>0), array('id'=>$id));
     }
 }
 

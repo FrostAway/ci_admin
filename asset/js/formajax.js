@@ -136,6 +136,12 @@ $(document).ready(function () {
     });
 
     // chon kieu xem san pham
+    $("#view-type-id").change(function(){
+       var type_id = $(this).val();
+       if (type_id !== '0'){
+           $("#form-view").submit();
+       }
+    });
     $("#form-view").submit(function () {
         var type_id = $("#view-type-id").val();
         

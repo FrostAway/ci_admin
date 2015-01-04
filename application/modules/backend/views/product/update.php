@@ -26,13 +26,14 @@
                 <input name="product[quantity]" value="<?php echo $product->quantity ?>" type="number">
                 <label>Hạng mục</label>
                 <select name="product[category_id]">
-                    <?php foreach ($parents as $parent){ ?>
+                    <option value="<?= $product->category_id ?>"><?= $product->category_name ?></option>
+                    <?php // foreach ($parents as $parent){ ?>
                     <?php 
-                    $select = '';
-                    if($parent['id'] == $product->attr_group) $select = 'selected';
+//                    $select = '';
+//                    if($parent['id'] == $product->attr_group) $select = 'selected';
                     ?>
-                    <option <?php echo $select; ?> value="<?php echo $parent['id'] ?>"><?php echo $parent['name'] ?></option>
-                    <?php } ?>
+                    <!--<option <?php //echo $select; ?> value="<?php// echo $parent['id'] ?>"><?php// echo $parent['name'] ?></option>-->
+                    <?php //} ?>
                 </select>
                 
             <label>Thumbnail: 

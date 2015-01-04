@@ -23,20 +23,29 @@ class Order extends MX_Controller {
 
         $this->load->view('layout', $pass);
     }
-    
-    public function delete(){
-        if($this->input->post('itemid')){
+
+    public function updateStatus() {
+        if ($this->input->post('order_id') && $this->input->post('status')) {
+            $id = $this->input->post('order_id');
+            $stt = $this->input->post('status');
+            $this->morder->updateStatus($id, $stt);
+            redirect('/backend/order/index');
+        }
+    }
+
+    public function delete() {
+        if ($this->input->post('itemid')) {
             $id = $this->input->post('itemid');
-            if($this->morder->delete($id)){
-                if($this->mproduct_order->delete_order($id)){
+            if ($this->morder->delete($id)) {
+                if ($this->mproduct_order->delete_order($id)) {
                     echo 'Successfull';
                 }
             }
         }
     }
-    
-    public function option(){
-        if ($this->input->post('btn-view-type')) {
+
+    public function option() {
+        if ($this->input->post('view-type')) {
             $type_id = $this->input->post('view-type');
             $pass['title'] = 'Quản lý hóa đơn';
             $pass['subview'] = 'order/index';
@@ -47,16 +56,20 @@ class Order extends MX_Controller {
                     break;
                 case 2:
                     $pass['orders'] = $this->morder->get_order_by_fild('amount', 'asc');
+                    break;
+                case 3:
+                    $pass['orders'] = $this->morder->get_order_by_fild('status', 'asc');
                 default:
                     break;
             }
-           $this->load->view('layout', $pass);
+            $this->load->view('layout', $pass);
         }
     }
 
     public function sendemail() {
         if ($this->input->post('btn-send')) {
             $email = $this->input->post('user-email');
+            $listproduct = $this->input->post('product-order');
             $config = array(
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -69,10 +82,13 @@ class Order extends MX_Controller {
             $this->email->from('vanlam0705@gmail.com', 'Own Store Email');
             $this->email->to('vanlam0705@gmail.com');
             $this->email->subject('Thông tin đơn hàng');
-            $this->email->message('Thông tin đơn hàng của bạn');
+            $this->email->message('Thông tin đơn hàng của bạn <br />'.$listproduct);
 
-            $this->email->send();
-            echo $this->email->print_debugger();
+            if ($this->email->send()) {
+                redirect('/backend/order/index');
+            } else {
+                echo 'Fails';
+            }
         }
     }
 

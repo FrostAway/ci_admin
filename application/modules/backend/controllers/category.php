@@ -90,7 +90,7 @@ class Category extends MX_Controller {
     }
 
     public function option() {
-        if ($this->input->post('btn-view-type')) {
+        if ($this->input->post('view-type')) {
             $type_id = $this->input->post('view-type');
             $pass['title'] = 'Category Manager';
             $pass['subview'] = 'category/index';

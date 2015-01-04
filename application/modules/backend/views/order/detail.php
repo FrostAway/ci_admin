@@ -26,12 +26,15 @@
                 </div>
             </div>
             <div class="small-6 columns">
-                <?php if($order->has_user == 1){ ?>
+                <?php if($order->user_id != 0){ ?>
                 <label>Khách hàng đã có tài khoản:</label>
+                <?php }else{ ?>
+                Khách hàng chưa có tài khoản.
+                <?php } ?>
                     <table class="data-table">
                         <tr>
                             <td>Tên khách hàng: </td>
-                            <td><?= $order->full_name ?></td>
+                            <td><?= $order->fullname ?></td>
                         </tr>
                         <tr>
                             <td>Địa Chỉ: </td>
@@ -46,9 +49,7 @@
                             <td><?= $order->email ?></td>
                         </tr>
                     </table>
-                <?php }else{ ?>
-                Khách hàng chưa có tài khoản.
-                <?php } ?>
+                
             </div>
         </div>
     </div>
@@ -57,6 +58,7 @@
     <?= form_open(base_url().'backend/order/sendemail', array('method'=>'post')); ?>
     <div class="wrapper">
         <h5>Danh sách sản phẩm</h5>
+        <div id="list-product">
         <table class="data-table">
             <thead>
                 <tr>
@@ -72,7 +74,7 @@
             <?php foreach ($products as $product){ ?>
             <tr>
                 <td><?= $product['product_id'] ?></td>
-                <td><a href="#"><img src="<?= $product['thumbnail'] ?>" /> </a> </td>
+                <td><a href="#"><img src="<?= $product['thumbnail'] ?>" width="70" /> </a> </td>
                 <td><?= $product['name'] ?></td>
                 <td><?= $product['price'] ?></td>
                 <td><?= $product['discount'] ?></td>
@@ -81,7 +83,7 @@
             </tr>
             <?php } ?>
         </table>
-
+        </div>
         <div class="row">
             <hr />
         </div>
@@ -112,7 +114,8 @@
                         <ul class="inline-list">
                             <li><a class="button tiny">Hủy hóa đơn</a></li>
                             <li><a class="button tiny">Xuất File</a></li>
-                            <input type="hidden" name="user-email" value="<?php if(isset($order->email)) echo $order->email ?>" />
+                            <input type="hidden" id="get-list-product" name="product-order" value="" />
+                            <input type="hidden" name="user-email" value="<?= $order->email ?>" />
                             <li><input type="submit" name="btn-send" class="button tiny" value="Tiếp tục" /></li>
                         </ul>
                     </div>

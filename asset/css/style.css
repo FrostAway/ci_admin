@@ -1,80 +1,72 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Dec 23, 2014, 11:36:39 AM
-    Author     : IgnoredBy
-*/
-
-body{
-    background: #efefef;
+body {
+  background: #efefef;
 }
-
-.wrapper{
-    margin-top: 10px; padding: 20px;
-    background: #fff;
+.wrapper {
+  margin-top: 10px;
+  padding: 20px;
+  background: #fff;
 }
-
-#top-bar, #top-bar .top-bar{
-    background: #fff;
+#top-bar,
+#top-bar .top-bar {
+  background: #fff;
 }
-#top-bar .top-bar .name{
-    background: #fff;
+#top-bar .top-bar .name {
+  background: #fff;
 }
-#top-bar ul li a{
-    background: #fff; color: #6699ff;
+#top-bar ul li a {
+  background: #fff;
+  color: #6699ff;
 }
-
-#main-menu .name{
-    background: #6699ff;
+#main-menu .name {
+  background: #6699ff;
 }
-#main-menu, #main-menu .top-bar{
-    background: #3399ff;
+#main-menu,
+#main-menu .top-bar {
+  background: #3399ff;
 }
-#main-menu ul li a{
-    background: #3399ff !important;
+#main-menu ul li a {
+  background: #3399ff !important;
 }
-
-.box-panel{
-    border: 1px solid #e5e4e4;
+.box-panel {
+  border: 1px solid #e5e4e4;
 }
-.box-header{
-    border-bottom: 1px solid#e5e4e4;
-    padding: 5px;
+.box-header {
+  border-bottom: 1px solid#e5e4e4;
+  padding: 5px;
 }
-.box-content{
-    padding: 5px;
-    border-bottom: 1px solid#e5e4e4;
+.box-content {
+  padding: 5px;
+  border-bottom: 1px solid#e5e4e4;
 }
-.box-content i{
-    margin-left: 15px;
-    font-size: 48px;
+.box-content i {
+  margin-left: 15px;
+  font-size: 48px;
 }
-.box-content .number{
-    font-size: 28px; color: #cccc00;
-    margin-right: 15px;
+.box-content .number {
+  font-size: 28px;
+  color: #cccc00;
+  margin-right: 15px;
 }
-
-.nav-table{
-    margin: 0.5em 0 0 0 ;
+.nav-table {
+  margin: 0.5em 0 0 0 ;
 }
-.nav-table select{
-    margin: 0.3em 0 0 0;
-    padding: 2px 5px;
+.nav-table select {
+  margin: 0.3em 0 0 0;
+  padding: 2px 5px;
 }
-
-.data-table tr td, .data-table tr th{
-    padding: 15px 10px !important;
+.data-table tr td,
+.data-table tr th {
+  padding: 15px 10px !important;
 }
-
-.data-table input[type='text'], .data-table select{
-    padding: 3px; margin: 0; height: 25px;
+.data-table input[type='text'],
+.data-table select {
+  padding: 3px;
+  margin: 0;
+  height: 25px;
 }
-.data-table .option-form{
-    vertical-align: top;
+.data-table .option-form {
+  vertical-align: top;
 }
-.data-table a .button{
-    margin: 0px;
+.data-table a .button {
+  margin: 0px;
 }
