@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/wamp/www/ci_admin/application/modules/backend/views/product/form.php</file>
-            <file>file:/E:/wamp/www/ci_admin/application/modules/backend/models/mproduct_attr.php</file>
-            <file>file:/E:/wamp/www/ci_admin/application/modules/backend/controllers/product.php</file>
+            <file>file:/E:/wamp/www/ci_admin/application/modules/backend/models/mproduct.php</file>
+            <file>file:/E:/wamp/www/ci_admin/asset/js/formajax.js</file>
+            <file>file:/E:/wamp/www/ci_admin/application/modules/backend/views/main.php</file>
+            <file>file:/E:/wamp/www/ci_admin/application/modules/backend/controllers/admin.php</file>
         </group>
     </open-files>
 </project-private>

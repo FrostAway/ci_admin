@@ -12,7 +12,9 @@ and open the template in the editor.
         <link rel="stylesheet" href="<?php echo base_url() ?>asset/foundation/css/foundation.css" />
         <link rel="stylesheet" href="<?php echo base_url() ?>asset/foundation/css/foundation-icons.css" />
         <link rel="stylesheet" href="<?php echo base_url() ?>asset/css/main.css" />
-
+     
+        <script src="<?php echo base_url() ?>asset/foundation/js/vendor/jquery.js"></script>
+        <script src="<?php echo base_url() ?>asset/js/jquery-ui.min.js"></script>
         <script src="<?php echo base_url() ?>asset/foundation/js/vendor/modernizr.js"></script>
         <script src="<?php echo base_url() ?>asset/plugin/ckeditor/ckeditor.js"></script>
         <script src="https://www.google.com/jsapi"></script>
@@ -46,7 +48,7 @@ and open the template in the editor.
                     </ul>
                     <section class="top-bar-section">
                         <ul class="left">
-                            <li><a href="#"><i class="fi-home large"></i> Tổng quan</a></li>
+                            <li><a href="<?= base_url().'backend/admin/index' ?>"><i class="fi-home large"></i> Tổng quan</a></li>
                             <li class="has-dropdown not-click"><a href="#"><i class="fi-widget large"></i> Thiết lập</a>
                                 <ul class="dropdown">
                                     <li><a href="#">Tài khoản</a></li>
@@ -90,8 +92,7 @@ and open the template in the editor.
                 <?php $this->load->view($subview) ?>
             </section>
         </div>
-        <script src="<?php echo base_url() ?>asset/foundation/js/vendor/jquery.js"></script>
-        <script src="<?php echo base_url() ?>asset/js/jquery-ui.min.js"></script>
+        
         <script src="<?php echo base_url() ?>asset/foundation/js/foundation.min.js"></script>
         <script src="<?php echo base_url() ?>asset/js/custom.js"></script>
         <script src="<?php echo base_url() ?>asset/js/formajax.js"></script>

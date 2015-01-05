@@ -90,22 +90,16 @@ class Category extends MX_Controller {
     }
 
     public function option() {
-        if ($this->input->post('view-type')) {
-            $type_id = $this->input->post('view-type');
-            $pass['title'] = 'Category Manager';
-            $pass['subview'] = 'category/index';
-            $pass['type_id'] = $type_id;
-            switch ($type_id) {
-                case 1:
-                    $pass['categories'] = $this->mcategory->get_order_by_fild('name', 'asc');
-                    break;
-                case 2:
-                    $pass['categories'] = $this->mcategory->get_order_by_fild('name', 'desc');
-                default:
-                    break;
+        if ($this->input->post('btn-apply')) {
+            $type = $this->input->post('action');
+            if($type == 1){
+                $item_check = $this->input->post('item-check');
+                foreach ($item_check as $id => $value){
+                    $this->mcategory->delete($id);
+                }
             }
-            $this->load->view('layout', $pass);
         }
+        redirect('/backend/category/index');
     }
 
 }

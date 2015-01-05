@@ -3,25 +3,23 @@
         <div class="row">
             <h4 class="bar-title">Quản lý nhóm thuộc tính</h4>
         </div>
+        <?= form_open(base_url().'backend/attr_group/option', array('method'=>'post', 'id'=>'form-view')); ?>
         <div class="row nav-table">
                 <div class="small-12 medium-4 large-4 columns " >
-                    <?= form_open(base_url().'backend/attr_group/option', array('method'=>'post', 'id'=>'form-view')); ?>
+                    
                     <div class="row collapse">
                         <div class="small-10 medium-9 large-9 columns">
-                            <select name="view-type" id="view-type-id">
-                                <?php
-                                $select = '';
-                                if(isset($type_id)){
-                                    
-                                }
-                                ?>
-                                <option value="0">Sắp xếp theo</option>
-                                <option value="1">Sắp xếp theo tên A-Z</option>
-                                <option value="2">Sắp xếp theo tên Z-A</option>
+                            <select name="action" id="action-type">
+                                
+                                <option value="0">Chọn hành động</option>
+                                <option value="1">Xóa</option>
                             </select>
                         </div>
+                        <div class="small-2 medium-3 large-3 columns">
+                            <input type="submit" name="btn-apply" value="Apply" class="button radius tiny" />
+                        </div>
                     </div>
-                    <?= form_close() ?>
+                    
                 </div>
             
                 <div class="small-12 medium-3 large-2 large-offset-6 columns form-group">
@@ -39,7 +37,7 @@
             </thead>
             <?php foreach ($attrgs as $attrg) { ?>
                 <tr>
-                    <td><input type="checkbox" name="attributes" class="item-check"/></td>
+                    <td><input type="checkbox" name="item-check[<?= $attrg['id'] ?>]" class="item-check"/></td>
                     <td><?php echo $attrg['id'] ?></td>
                     <td><?php echo $attrg['name'] ?></td>
                     <td>
@@ -50,4 +48,5 @@
             <?php } ?>
         </table>
     </div>
+    <?= form_close() ?>
 </div>

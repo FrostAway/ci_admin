@@ -151,5 +151,12 @@ $(document).ready(function () {
             return true;
         }
     });
+    
+    
+    //Date picker
+    $("input[type=date]").datepicker(); 
+    
+    //load data to google chart
+    
 
 });

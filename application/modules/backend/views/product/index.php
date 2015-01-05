@@ -6,30 +6,37 @@
             <h4>Quản lý Sản phẩm</h4>
             <div class="row nav-table">
                 <div class="small-12 medium-12 large-4 columns form-group">
-                    <?= form_open(base_url().'backend/product/option', array('method'=>'post', 'id'=>'form-view')) ?>
+                    <?= form_open(base_url().'backend/product/show_in_cat', array('method'=>'post', 'id'=>'form-view')) ?>
                     <div class="row collapse">
                         <div class="small-10 medium-9 large-9 columns ">
-                            <select name="view-type" id="view-type-id" url="<?= base_url() ?>backend/product/option">
+                            <select name="cate_id" id="action-type" >
                                 <option value="0">Sắp xếp theo</option>
-                                <option value="1">Tên sản phẩm</option>
-                                <option value="2">Giá sản phẩm</option>
+                                <?php foreach ($categories as $cat){ ?>
+                                <option value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
+                                <?php } ?>
                             </select>
+                        </div>
+                        <div class="small-2 medium-3 large-3 columns">
+                            <input type="submit" name="btn-filter" value="Lọc" class="button radius tiny" />
+                        </div>
+                    </div>
+                    
+                    <?= form_close() ?>
+                </div>
+                <div class="small-12 medium-12 large-4 large-offset-4 columns form-group">
+                    <?= form_open(base_url().'backend/product/search', array('method'=>'post', 'id'=>'form-view')) ?>
+                    <div class="row collapse">
+                        <div class="small-10 medium-9 large-9 columns">
+                            <input name="name" type="text" placeholder="Search..." />
+                        </div>
+                        <div class="small-2 medium-3 large-3 columns">
+                            <input name="btn-search" value="Search" type="submit" class="button radius tiny" /> <!--<i class="fi-magnifying-glass"></i> -->
                         </div>
                     </div>
                     <?= form_close() ?>
                 </div>
-                <div class="small-12 medium-12 large-4 large-offset-4 columns form-group">
-                    <div class="row collapse">
-                        <div class="small-10 medium-9 large-9 columns">
-                            <input type="text" placeholder="Search..." />
-                        </div>
-                        <div class="small-2 medium-3 large-3 columns">
-                            <a class="button radius tiny btn-search"><i class="fi-magnifying-glass"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
-             <?= form_open(base_url().'backend/product/option') ?>
+             <?= form_open(base_url().'backend/product/index') ?>
             <div class="row nav-table">
                 <div class="small-12 medium-12 large-4 columns">
                    
@@ -75,7 +82,8 @@
                         <th>Tùy chọn</th>
                     </tr>
                 </thead>
-                <?php foreach ($products as $product) { ?>
+                <?php if($products != null){
+                    foreach ($products as $product) { ?>
                     <tr>
                         <td><input type="checkbox" name="product-check[<?= $product['id'] ?>]" class="item-check" /> </td>
                         <td><?php echo $product['id'] ?></td>
@@ -90,8 +98,11 @@
                             <a href="<?php echo base_url() ?>backend/product/delete" itemid="<?php echo $product['id'] ?>" class="item-delete fi-x large" data-tooltip aria-haspopup class="has-tip" title="Xóa"></a>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php }} ?>
             </table>
+            <ul class="pagination">
+            <?= $this->pagination->create_links(); ?>
+            </ul>
             <?= form_close() ?>
         </div>
     </div>

@@ -5,20 +5,22 @@
             <div class="row">
                 <h4 class="bar-title">Quản lý Hóa đơn</h4>
             </div>
+             <?= form_open(base_url().'backend/order/option', array('method'=>'post')) ?>
             <div class="row nav-table">
                 <div class="small-12 medium-6 large-4 columns">
-                    <?= form_open(base_url().'backend/order/option', array('id'=>'form-view', 'method'=>'post')) ?>
+                   
                     <div class="row collapse">
                         <div class="small-10 columns">
-                            <select name="view-type" id="view-type-id">
-                                <option value="0">Chọn kiểu xem</option>
-                                <option value="1">Sắp xếp theo tên A-Z</option>
-                                <option value="2">Sắp xếp theo tổng tiền</option>
-                                <option value="3">Sắp xếp theo trạng thái</option>
+                            <select name="action" id="action-type">
+                                <option value="0">Chọn hành động</option>
+                                <option value="1">Xóa</option>
                             </select>
                         </div>
+                        <div class="small-2 columns">
+                            <input type="submit" value="Apply" name="btn-apply" class="button radius tiny" />
+                        </div>
                     </div>
-                    <?= form_close(); ?>
+                    
                 </div>
             </div>
             
@@ -36,7 +38,7 @@
                 </thead>
                 <?php foreach ($orders as $order)  { ?>
                     <tr>
-                        <td><input type="checkbox" name="attributes" class="item-check"/></td>
+                        <td><input type="checkbox" name="item-check[<?= $order['id'] ?>]" class="item-check"/></td>
                         <td><?= $order['bill_code'] ?></td>
                         <td><?= $order['order_time'] ?></td>
                         <td><?= $order['fullname'] ?></td>
@@ -57,6 +59,7 @@
                 <?php } ?>
             </table>
         </div>
+        <?= form_close(); ?>
     </div>
 </div>
 

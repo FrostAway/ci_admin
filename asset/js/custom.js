@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
     
     //date picker
-    
+  
     // get part list product table jquery
     $("#get-list-product").val($("#list-product").text());
 

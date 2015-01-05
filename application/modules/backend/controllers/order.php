@@ -67,17 +67,16 @@ class Order extends MX_Controller {
         
         
         if ($this->input->post('btn-apply')) {
-            $action = $this->input->post('order-action');
+            $action = $this->input->post('action');
             if ($action == 1) {
                 $item_check = $this->input->post('item-check');
-                if (count($item_check) > 0) {
                     foreach ($item_check as $o_id => $stt) {
                         $this->morder->delete($o_id);
                         $this->mproduct_order->delete_order($o_id);
                     }
-                }
-                redirect('/backend/product/index');
+                   
             }
+             redirect('/backend/order/index');
         }
     }
 

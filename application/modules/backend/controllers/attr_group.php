@@ -110,12 +110,25 @@ class Attr_group extends MX_Controller {
                 case 1:
                     $pass['attrgs'] = $this->mattr_group->get_order_by_fild('name', 'asc');
                     break;
-                case 2: 
+                case 2:
                     $pass['attrgs'] = $this->mattr_group->get_order_by_fild('name', 'desc');
                 default:
                     break;
             }
             $this->load->view('layout', $pass);
+        }
+
+        if ($this->input->post('btn-apply')) {
+            $type = $this->input->post('action');
+            if ($type == 1) {
+                $item_check = $this->input->post('item-check');
+                if (count($item_check) > 1) {
+                    foreach ($item_check as $id => $value) {
+                        $this->mattr_group->delete_group($id);
+                    }
+                }
+            }
+            redirect('/backend/attr_group/index');
         }
     }
 
